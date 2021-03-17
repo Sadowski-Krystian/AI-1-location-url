@@ -28,7 +28,7 @@ let updPageTitle = (value)=>{
     document.querySelector('title').textContent = mainTitle+' #'+value;
 }
 let addTO = (e)=>{
-    //e.preventDefault();
+    e.preventDefault();
     console.log(e.target.href);
 
     let hash = null;
@@ -44,6 +44,7 @@ let addTO = (e)=>{
     updPageTitle(label);
     history.pushState(hash, label, '#'+hash);
     barHistory[len] = {hashKey: hash, value:label};
+    location.hash = "";
     (e.type=='click') ? location.hash=hash : null;
     console.log(barHistory);
     addOpt(barHistory);
